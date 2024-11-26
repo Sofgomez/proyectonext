@@ -81,7 +81,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <p className="italic text-gray-600">
                 La experiencia con esta empresa ha sido increíble. ¡Los
-                recomiendo al 100%!
+                recomiendo 100%!
               </p>
               <h4 className="font-bold mt-4">- Cliente 1</h4>
             </div>
