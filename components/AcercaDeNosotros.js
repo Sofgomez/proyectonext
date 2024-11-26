@@ -8,7 +8,7 @@ const AcercaDeNosotros = () => {
       <h2 className="text-3xl font-bold mb-6">Acerca de nosotros</h2>
       <p className="text-lg text-gray-600 mb-8">
         Somos una empresa dedicada a brindar soluciones personalizadas para
-        nuestros clientes. Nuestra misión es ayudarte a alcanzar tus metas.
+        nuestros clientes. Nuestra misión es ayudarte a 
       </p>
       <div className="flex flex-wrap justify-center space-x-6">
         <Image
