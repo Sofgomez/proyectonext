@@ -8,12 +8,7 @@ const Header = () => {
     <header className="bg-yellow-900 text-white shadow-md">
       <div className="container mx-auto px-10 py-3 flex items-center justify-between">
       <div className="flex items-center">
-          <Image
-            src="/images/logo.png" // Ruta de la imagen
-            width={200} // Ancho en píxeles
-            height={200} // Alto en píxeles
-            className="object-contain" // Ajusta el estilo
-          />
+          <Image src="/images/logo.png" width={200} height={200} className="object-contain"/>
       </div>
 
 

@@ -4,18 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
    <Layout>
-     <section className="bg-yellow-800 text-white py-20">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Bienvenido a Mi Empresa
-          </h1>
-          <p className="text-lg md:text-xl mb-8">
-            Ofrecemos servicios de alta calidad para llevar tu negocio al
-            siguiente nivel.
-          </p>
-        </div>
-      </section>
-
+  
       {/* Acerca de nosotros */}
       <section id="about" className="py-20 bg-gray-100">
         <div className="container mx-auto text-center">
