@@ -1,8 +1,12 @@
-import React from 'react'
-import '../styles/globals.css'
-import '../styles/Header.module.css'
+import "../styles/globals.css"; // Estilos globales
+import Header from "../components/main/Header"; // Ruta al Header
 
-export default function MyApp({ Component, pageProps })
-{
-    return <Component {...pageProps} />;
- }
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
+}
+
+export default MyApp;

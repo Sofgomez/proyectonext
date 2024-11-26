@@ -12,6 +12,7 @@ export default function Layout({ children }) {
             <link rel="icon" href="/favicon.icon"/>
 
             <meta name="theme-color"
+
             content="#ffffff"/>
 
             <meta 
@@ -20,9 +21,7 @@ export default function Layout({ children }) {
 
            </Head>
            <Header/>
-           <main>
-            {children}
-           </main>
+           <main>{children}</main>
            <Footer/>
         </div>
     );
