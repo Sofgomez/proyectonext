@@ -8,7 +8,7 @@ const Header = () => {
     <header className="bg-yellow-900 text-white shadow-md">
       <div className="container mx-auto px-10 py-3 flex items-center justify-between">
       <div className="flex items-center">
-          <Image src="/images/logo.png" width={200} height={200} className="object-contain" alt="logo"/>
+          <Image src="/images/logo.png" width={150} height={150} className="object-contain" alt="logo"/>
       </div>
 
 

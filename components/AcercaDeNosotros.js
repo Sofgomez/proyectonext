@@ -5,10 +5,9 @@ const AcercaDeNosotros = () => {
   return (
     <section id="about" className="py-20 bg-gray-100">
     <div className="container mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-6">Acerca de nosotros</h2>
+      <h2 className="text-3xl font-bold mb-6" >Acerca de nosotros</h2>
       <p className="text-lg text-gray-600 mb-8">
-        Somos una empresa dedicada a brindar soluciones personalizadas para
-        nuestros clientes. Nuestra misión es ayudarte a 
+       Somos una tienda dedicada a crear galletas únicas y personalizadas que endulzan tus momentos y convierten tus ideas en deliciosas realidades.
       </p>
       <div className="flex flex-wrap justify-center space-x-6">
         <Image
