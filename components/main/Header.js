@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link"; // Asegúrate de importar Link
+import Link from "next/link"; 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para el menú móvil
@@ -36,7 +36,7 @@ const Header = () => {
               <span className="hover:text-amber-950 block md:inline-block">Nosotros</span>
             </Link>
 
-            <Link href="#services">
+            <Link href="/Servicios">
               <span className="hover:text-amber-950 block md:inline-block">Servicios</span>
             </Link>
 
