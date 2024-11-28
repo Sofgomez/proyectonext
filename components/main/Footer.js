@@ -6,7 +6,6 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         {/* Sección superior */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Columna 1: Información */}
           <div className="mb-4">
               <Image
                 src="/images/logo.png" 
@@ -15,9 +14,8 @@ const Footer = () => {
                 alt="logo"
                 className="object-contain"
               />
-            </div>
+          </div>
 
-          {/* Columna 2: Enlaces */}
           <div>
             <h3 className="text-lg font-bold mb-3">Enlaces</h3>
             <ul className="space-y-2">
@@ -83,10 +81,12 @@ const Footer = () => {
 
         {/* Línea divisoria */}
         <div className="border-t border-gray-400 mt-8 pt-4">
-          <p className="text-center text-gray-200 text-sm">
-            &copy; {new Date().getFullYear()} MiLogo. Todos los derechos reservados.
-          </p>
-        </div>
+  <p className="text-center text-gray-200 text-sm">
+    &copy; {new Date().getFullYear()} 
+    <Image src="/images/logo.png" alt="logo"  width={20} height={20}  className="w-10 h-10 rounded-full inline-block"/> 
+    Todos los derechos reservados.
+  </p>
+</div>
       </div>
     </footer>
   );
