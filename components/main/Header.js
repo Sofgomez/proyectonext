@@ -9,8 +9,8 @@ const Header = () => {
   return (
     <>
       <header className="bg-yellow-900 text-white shadow-md">
-        <div className="container mx-auto px-10 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-10">
+        <div className="container mx-auto px-5 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-5">
             {/* Enlace al logo */}
             <Link href="/">
               <Image
@@ -34,10 +34,6 @@ const Header = () => {
             {/* Otros enlaces */}
             <Link href="/Nosotros">
               <span className="hover:text-amber-950 block md:inline-block">Nosotros</span>
-            </Link>
-
-            <Link href="/Servicios">
-              <span className="hover:text-amber-950 block md:inline-block">Servicios</span>
             </Link>
 
             {/* Enlace para la página de productos */}
@@ -70,12 +66,12 @@ const Header = () => {
           <div className="bg-transparent rounded-lg p-10 shadow-lg relative backdrop-blur-lg">
             {/* Formulario */}
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-5xl font-extrabold text-center text-orange-200 mb-3 font-playfair display">
+              <h2 className="text-5xl font-extrabold text-center text-white mb-3 font-playfair display">
                 Sesion
               </h2>
               {/* Botón para cerrar el modal */}
               <button
-                className="text-white hover:text-gray-800"
+                className="text-black hover:text-yellow-800"
                 onClick={() => setIsModalOpen(false)}
               >
                 ✖

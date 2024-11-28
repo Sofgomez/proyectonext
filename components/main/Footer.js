@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -7,37 +8,34 @@ const Footer = () => {
         {/* Sección superior */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="mb-4">
+          <Link href="/">
               <Image
-                src="/images/logo.png" 
-                width={180} 
-                height={180} 
-                alt="logo"
+                src="/images/logo.png"
+                width={150}
+                height={150}
                 className="object-contain"
+                alt="logo"
               />
+            </Link>
           </div>
 
           <div>
             <h3 className="text-lg font-bold mb-3">Enlaces</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="hover:text-amber-950">
-                  Inicio
-                </a>
+               <Link href="/">
+                <span className="hover:text-amber-950 block md:inline-block">Inicio</span>
+               </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-amber-950">
-                  Acerca
-                </a>
+              <Link href="/Nosotros">
+                <span className="hover:text-amber-950 block md:inline-block">Nosotros</span>
+              </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-950">
-                  Servicios
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-amber-950">
-                  Contacto
-                </a>
+               <Link href="/Productos">
+                <span className="hover:text-amber-950 block md:inline-block">Productos</span>
+               </Link>
               </li>
             </ul>
           </div>

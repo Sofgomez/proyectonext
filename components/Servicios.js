@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'; // Si estás usando Next.js
+import Image from 'next/image'; 
 
 const Servicios = () => {
   return (
@@ -16,10 +16,10 @@ const Servicios = () => {
           <div className="bg-orange-200 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
             <div className="w-80 h-80 overflow-hidden rounded-lg mb-4">
               <Image
-                src="/images/personaliza.png"
+                src="/images/personalizadaa.png"
                 alt="Galletas Personalizadas"
-                width={240}
-                height={240}
+                width={200}
+                height={200}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -32,7 +32,7 @@ const Servicios = () => {
           <div className="bg-orange-200 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
             <div className="w-80 h-80 overflow-hidden rounded-lg mb-4">
               <Image
-                src="/images/envio.png"
+                src="/images/domicilio.png"
                 alt="Envíos a Domicilio"
                 width={240}
                 height={240}
@@ -46,12 +46,12 @@ const Servicios = () => {
           </div>
           {/* Servicio 3 */}
           <div className="bg-orange-200 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
-            <div className="w-80 h-80 overflow-hidden rounded-lg mb-4">
+            <div className="w-80 h-50 overflow-hidden rounded-lg mb-4">
               <Image
-                src="/images/taller.png"
+                src="/images/decoracion.png"
                 alt="Talleres de Decoración"
-                width={240}
-                height={240}
+                width={200}
+                height={200}
                 className="object-cover w-full h-full"
               />
             </div>

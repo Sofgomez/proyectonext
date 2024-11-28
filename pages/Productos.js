@@ -27,7 +27,41 @@ const Productos = () => {
       precio: 4.99,
       imagen: "/images/galleta5.png",
     },
-    // ... Agrega los productos restantes aquí
+    {
+      id: 4,
+      nombre: "Galletas de Vainilla",
+      descripcion: "Galletas suaves con un toque de vainilla natural.",
+      precio: 4.99,
+      imagen: "/images/galleta6.png",
+    },
+    {
+      id: 5,
+      nombre: "Galletas de Vainilla",
+      descripcion: "Galletas suaves con un toque de vainilla natural.",
+      precio: 4.99,
+      imagen: "/images/galleta7.png",
+    },
+    {
+      id: 6,
+      nombre: "Galletas de Vainilla",
+      descripcion: "Galletas suaves con un toque de vainilla natural.",
+      precio: 4.99,
+      imagen: "/images/galleta8.png",
+    },
+    {
+      id: 7,
+      nombre: "Galletas de Vainilla",
+      descripcion: "Galletas suaves con un toque de vainilla natural.",
+      precio: 4.99,
+      imagen: "/images/galleta9.png",
+    },
+    {
+      id: 8,
+      nombre: "Galletas de Vainilla",
+      descripcion: "Galletas suaves con un toque de vainilla natural.",
+      precio: 4.99,
+      imagen: "/images/galleta10.png",
+    },
   ];
 
   const [cart, setCart] = useState([]);
@@ -96,7 +130,7 @@ const Productos = () => {
                   {/* Botón de agregar al carrito */}
                   <button
                     onClick={() => addToCart(producto)}
-                    className="mt-4 bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition duration-300"
+                    className="mt-4 bg-black text-white px-4 py-2 rounded-full hover:bg-yellow-800 transition duration-300"
                   >
                     Agregar al carrito
                   </button>
@@ -109,40 +143,52 @@ const Productos = () => {
 
       {/* Carrito lateral */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform ${
+        className={`fixed top-0 right-0 h-full w-80 bg-yellow-900 shadow-lg transform ${
           showCart ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 z-50`}
       >
-        <div className="p-4">
-          <h2 className="text-2xl font-bold mb-4">Carrito de Compras</h2>
+        <div className="p-4 space-y-4">
+          <h2 className="text-2xl font-bold mb-4 text-white">Carrito</h2>
           {cart.length === 0 ? (
-            <p className="text-gray-500">Tu carrito está vacío</p>
+            <p className="text-white">Tu carrito está vacío</p>
           ) : (
-            <ul>
+            <ul className="space-y-4">
               {cart.map((item) => (
                 <li
-                  key={item.id}
-                  className="flex justify-between items-center mb-4"
-                >
+                key={item.id}
+                className="flex items-center justify-between mb-4 border-b pb-4"
+              >
+                {/* Imagen y detalles del producto */}
+                <div className="flex items-center space-x-4">
+                  <Image
+                    src={item.imagen}
+                    alt={item.nombre}
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
                   <div>
-                    <h3 className="font-bold">{item.nombre}</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="font-bold text-sm">{item.nombre}</h3>
+                    <p className="text-sm text-white">
                       €{item.precio.toFixed(2)} x {item.cantidad}
                     </p>
                   </div>
-                  <button
-                    className="text-red-500 font-bold"
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    Eliminar
-                  </button>
-                </li>
+                </div>
+              
+                {/* Botón Eliminar */}
+                <button
+                  className="text-black hover:text-amber-950 font-bold ml-auto"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  Eliminar
+                </button>
+              </li>
               ))}
             </ul>
           )}
 
           <div className="mt-6 border-t pt-4">
-            <p className="text-lg font-bold">
+            <p className="text-lg font-bold text-white">
               Total: €{calculateTotal().toFixed(2)}
             </p>
           </div>
@@ -152,9 +198,9 @@ const Productos = () => {
       {/* Botón para abrir/ocultar carrito */}
       <button
         onClick={() => setShowCart(!showCart)}
-        className="fixed top-4 right-4 bg-black text-white px-4 py-2 rounded-full z-50"
+        className="fixed top-4 right-4 bg-yellow-950 text-white px-4 py-2 rounded-full z-50 "
       >
-        {showCart ? "Cerrar Carrito" : `Carrito (${cart.length})`}
+        {showCart ? "Cerrar" : `Carrito (${cart.length})`}
       </button>
     </Layout>
   );
