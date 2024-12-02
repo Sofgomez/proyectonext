@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-yellow-900 text-white shadow-md">
+      <header className="bg-yellow-900 text-orange-100 shadow-md">
         <div className="container mx-auto px-5 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-5">
             {/* Enlace al logo */}
@@ -44,7 +44,7 @@ const Header = () => {
             {/* Botón de Inicio de Sesión */}
             <button
               onClick={() => setIsModalOpen(true)} // Abre el modal al hacer clic
-              className="bg-yellow-900 text-white py-2 px-4 rounded-lg hover:bg-yellow-800 transition duration-300 block md:inline-block"
+              className="bg-yellow-900 text-orange-100 py-2 px-4 rounded-lg hover:bg-yellow-800 transition duration-300 block md:inline-block"
             >
               Sesión
             </button>
@@ -66,7 +66,7 @@ const Header = () => {
           <div className="bg-transparent rounded-lg p-10 shadow-lg relative backdrop-blur-lg">
             {/* Formulario */}
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-5xl font-extrabold text-center text-white mb-3 font-playfair display">
+              <h2 className="text-5xl font-extrabold text-center text-orange-100 mb-3 font-playfair display">
                 Sesion
               </h2>
               {/* Botón para cerrar el modal */}
@@ -80,7 +80,7 @@ const Header = () => {
 
             <form>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-white font-medium mb-2">
+                <label htmlFor="email" className="block text-orange-100 font-medium mb-2">
                   Correo Electrónico:
                 </label>
                 <input
@@ -93,7 +93,7 @@ const Header = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="block text-white font-medium mb-2">
+                <label htmlFor="password" className="block text-orange-100 font-medium mb-2">
                   Contraseña:
                 </label>
                 <input
@@ -107,8 +107,7 @@ const Header = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-yellow-950 text-white py-2 px-4 rounded-lg hover:bg-yellow-900 transition duration-300"
-              >
+                className="w-full bg-yellow-950 text-orange-100 py-2 px-4 rounded-lg hover:bg-yellow-900 transition duration-300">
                 Iniciar Sesión
               </button>
             </form>

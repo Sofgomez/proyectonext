@@ -3,14 +3,14 @@ import Link from "next/link";
 
 const AcercaDeNosotros = () => {
   return (
-    <div className="relative w-full xl:h-[60vh]">
+    <div className="relative w-full xl:h-[80vh]">
       {/* Video de fondo */}
       <video
         src="/videos/nosotros.mp4"
         loop
         muted
         autoPlay
-        className="absolute top-0 left-0 w-full h-full sm:h-[60vh] md:h-[70vh] lg:h-[75vh] xl:h-[60vh] object-cover"
+        className="absolute top-0 left-0 w-full h-full sm:h-[100vh] md:h-[70vh] lg:h-[75vh] xl:h-[80vh] object-cover"
       />
 
       {/* Contenedor del texto */}
