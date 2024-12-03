@@ -63,7 +63,7 @@ function Servicios() {
       </div>
       {/* Descripción con fondo oscuro y efecto de imagen sobrepuesta */}
       <div className="relative z-20 bg-yellow-950 bg-opacity-70 text-orange-100 px-6 py-16 w-full">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">¡Todo lo que necesitas, a un solo clic!</h2>
+        <h2 className="text-3xl sm:text-xl font-bold text-center mb-4">¡Todo lo que necesitas, a un solo clic!</h2>
         <p className="text-lg sm:text-xl text-center max-w-3xl mx-auto">
           Imagina disfrutar de galletas frescas y deliciosas, sin tener que encender el horno. Nuestra colección ofrece todo lo que necesitas para deleitar tu paladar sin esfuerzo. ¡Compra ahora y siente el sabor de lo recién horneado!
         </p>

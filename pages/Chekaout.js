@@ -5,6 +5,7 @@ import Image from "next/image";
 
 function Chekaout() {
   const [cart, setCart] = useState([]);
+  const [deliveryOption, setDeliveryOption] = useState("envio"); // Estado para controlar la opción seleccionada
   const router = useRouter(); // Hook de enrutamiento
 
   // Recuperar el carrito de LocalStorage al cargar la página
@@ -30,10 +31,9 @@ function Chekaout() {
 
   return (
     <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-yellow-950 via-yellow-900 to-yellow-950 flex items-center justify-center p-4">
-        <div className="relative bg-orange-100 shadow-2xl rounded-lg w-full max-w-4xl p-8 ">
-          
-          {/* Imagen superior izquierda que sobresale */}
+      <div className="min-h-screen bg-gradient-to-br from-yellow-950 via-yellow-900 to-yellow-950 flex items-center justify-center p-4">
+        <div className="relative bg-orange-100 shadow-2xl rounded-lg w-full max-w-4xl p-8">
+          {/* Imagen superior izquierda */}
           <Image
             src="/images/check.png"
             alt="Imagen 1"
@@ -41,9 +41,9 @@ function Chekaout() {
             width={150} 
             height={150}
             priority
-           />
+          />
 
-          {/* Imagen inferior derecha que sobresale */}
+          {/* Imagen inferior derecha */}
           <Image
             src="/images/check1.png"
             alt="Imagen 2"
@@ -52,7 +52,6 @@ function Chekaout() {
             height={150}
             priority
           />
-
 
           {/* Título */}
           <h1 className="text-4xl font-bold text-yellow-900 text-center mb-8">
@@ -109,10 +108,59 @@ function Chekaout() {
               </p>
             </div>
             <form onSubmit={handlePayment} className="space-y-6">
+              {/* Opción de envío o recogida */}
+              <div>
+                <p className="text-orange-100 font-medium mb-2">Método de entrega:</p>
+                <div className="flex items-center space-x-4">
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="envio"
+                      checked={deliveryOption === "envio"}
+                      onChange={() => setDeliveryOption("envio")}
+                      className="mr-2"
+                    />
+                    <span className="text-orange-100">Envío a domicilio</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="recoger"
+                      checked={deliveryOption === "recoger"}
+                      onChange={() => setDeliveryOption("recoger")}
+                      className="mr-2"
+                    />
+                    <span className="text-orange-100">Recoger en tienda</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Campos dinámicos según la opción seleccionada */}
+              {deliveryOption === "envio" && (
+                <div>
+                  <label
+                    htmlFor="direccion"
+                    className="block text-sm font-medium text-orange-100"
+                  >
+                    Dirección
+                  </label>
+                  <input
+                    type="text"
+                    id="direccion"
+                    placeholder="Ingresa tu dirección"
+                    className="mt-1 block w-full rounded-md border-orange-300 shadow-sm"
+                    required
+                  />
+                </div>
+              )}
+
               <div>
                 <label
                   htmlFor="nombre"
-                  className="block text-lg font-small text-orange-100">
+                  className="block text-lg font-small text-orange-100"
+                >
                   Nombre Completo
                 </label>
                 <input
@@ -120,21 +168,6 @@ function Chekaout() {
                   id="nombre"
                   placeholder="Tu Nombre"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="direccion"
-                  className="block text-sm font-medium text-orange-100"
-                >
-                  Dirección
-                </label>
-                <input
-                  type="text"
-                  id="direccion"
-                  placeholder="Ingresa tu dirección"
-                  className="mt-1 block w-full rounded-md border-orange-300 shadow-sm"
                   required
                 />
               </div>

@@ -46,7 +46,7 @@ const Nosotros = () => {
           <h2 className="text-4xl font-extrabold text-yellow-900 text-center mb-6">Nuestra Historia</h2>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2">
-              <p className="text-lg text-black leading-relaxed mb-4 animate__animated animate__fadeIn animate__delay-1s">
+              <p className="text-lg text-yellow-950 leading-relaxed mb-4 animate__animated animate__fadeIn animate__delay-1s">
                 La Cookie comenzó como un sueño pequeño: ofrecer galletas que no solo fueran deliciosas, sino que también contaran una historia. 
                 Hoy, seguimos comprometidos con crear productos que celebren cada ocasión especial, desde la primera mordida hasta el último detalle.
               </p>
@@ -67,13 +67,12 @@ const Nosotros = () => {
             </div>
           </div>
         </div>
-
         {/* Sección del equipo */}
         <div className="relative w-full max-w-6xl px-6 md:px-16 mb-16">
           <h2 className="text-4xl font-extrabold text-yellow-900 text-center mb-6">Nuestro Equipo</h2>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2">
-              <p className="text-lg text-black leading-relaxed mb-4 animate__animated animate__fadeIn animate__delay-1s">
+              <p className="text-lg text-yellow-950 leading-relaxed mb-4 animate__animated animate__fadeIn animate__delay-1s">
                 Nuestro equipo está formado por reposteros apasionados y creativos que buscan siempre la perfección. 
                 Cada miembro tiene una historia que contar a través de nuestras galletas, haciendo de cada producto una obra de arte única.
               </p>
