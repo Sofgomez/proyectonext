@@ -108,18 +108,18 @@ function Productos() {
 
   return (
     <Layout>
-      <div className="bg-orange-100 py-16">
+      <div className="bg-gradient-to-br from-pink-50 to-purple-100 py-16">
         <div className="container mx-auto px-6">
-          <h2 className="text-5xl font-extrabold text-center text-yellow-900 mb-12">
+          <h2 className="text-5xl font-extrabold text-center text-purple-900 mb-12">
             Nuestros Productos
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {productos.map((producto) => (
               <div
                 key={producto.id}
-                className="bg-orange-50 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-pink-50 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <div className="flex justify-center items-center w-full h-64 bg-yellow-900 rounded-t-xl">
+                <div className="flex justify-center items-center w-full h-64 bg-purple-900 rounded-t-xl">
                   <Image
                     src={producto.imagen}
                     alt={producto.nombre}
@@ -130,16 +130,16 @@ function Productos() {
                   />
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-800">
+                  <h2 className=" font-semibold text-purple-900">
                     {producto.nombre}
                   </h2>
-                  <p className="text-gray-700 mt-2">{producto.descripcion}</p>
-                  <p className="text-xl font-semibold text-yellow-900 mt-3">
+                  <p className="text-xl text-purple-500 mt-2">{producto.descripcion}</p>
+                  <p className="text-xl font-semibold text-purple-950 mt-3">
                     €{producto.precio.toFixed(2)}
                   </p>
                   <button
                     onClick={() => addToCart(producto)}
-                    className="mt-4 bg-yellow-900 text-white px-6 py-2 rounded-full hover:bg-yellow-700 transition duration-300"
+                    className="mt-4 bg-purple-950 text-pink-100 px-6 py-2 rounded-full hover:bg-purple-800 transition duration-300"
                   >
                     Agregar al carrito
                   </button>
@@ -150,7 +150,7 @@ function Productos() {
         </div>
       </div>
       <div
-        className={`fixed top-0 right-0 h-full w-90 bg-orange-100 text-black shadow-2xl transform ${
+        className={`fixed top-0 right-0 h-full w-90 bg-purple-100 text-purple-800 shadow-2xl transform ${
           showCart ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 z-50`}
       >
@@ -172,13 +172,13 @@ function Productos() {
                     />
                     <div>
                       <h3 className="font-semibold">{item.nombre}</h3>
-                      <p className="text-sm text-gray-950">
+                      <p className="text-sm text-purple-950">
                         €{item.precio.toFixed(2)} x {item.cantidad}
                       </p>
                     </div>
                   </div>
                   <button
-                    className="text-yellow-900 hover:text-yellow-700 font-bold"
+                    className="text-purple-950 hover:text-purple-500 font-bold"
                     onClick={() => removeFromCart(item.id)}
                   >
                     Eliminar
@@ -192,7 +192,7 @@ function Productos() {
               Total: €{calculateTotal().toFixed(2)}
             </p>
             <Link href="/Chekaout">
-              <button className="mt-4 bg-yellow-900 text-white px-6 py-2 rounded-full hover:bg-yellow-700 transition duration-300">
+              <button className="mt-4 bg-purple-950 text-pink-100 px-6 py-2 rounded-full hover:bg-purple-800 transition duration-300">
                 Ir a pagar
               </button>
             </Link>
@@ -201,7 +201,7 @@ function Productos() {
       </div>
       <button
         onClick={() => setShowCart(!showCart)}
-        className="fixed bottom-4 right-4 bg-orange-100 text-yellow-900 p-4 rounded-full shadow-lg"
+        className="fixed bottom-4 right-4 bg-purple-950 text-pink-100 p-4 rounded-full shadow-lg"
       >
         {showCart ? "Ocultar carrito" : "Mostrar carrito"}
       </button>

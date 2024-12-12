@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 function Servicios() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center bg-yellow-900 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-yellow-950 opacity-70 z-10"></div>
+    <div className="relative min-h-screen flex flex-col items-center bg-gradient-to-b from-purple-50 to-purple-100 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-purple-950 opacity-70 z-10"></div>
 
       {/* Encabezado con tipografía grande y centrada */}
-      <header className="relative z-20 text-center text-orange-100 py-16">
+      <header className="relative z-20 text-center text-purple-900 py-16">
         <h1 className="text-6xl font-bold leading-tight mb-4 transform animate__animated animate__fadeIn animate__delay-1s">
           ¡Las Mejores Galletas, Directo a tu Puerta!
         </h1>
@@ -28,7 +28,7 @@ function Servicios() {
             height={600}
             className="object-cover w-full h-full transform group-hover:scale-105 transition duration-500 ease-in-out"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-yellow-950 bg-opacity-50 text-orange-100 text-center py-4 px-6">
+          <div className="absolute bottom-0 left-0 right-0 bg-purple-950 bg-opacity-50 text-purple-100 text-center py-4 px-6">
             <h3 className="text-2xl font-semibold">Mini Hersheys</h3>
           </div>
         </div>
@@ -42,7 +42,7 @@ function Servicios() {
             height={600}
             className="object-cover w-full h-full transform group-hover:scale-105 transition duration-500 ease-in-out"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-yellow-950 bg-opacity-50 text-orange-100 text-center py-4 px-6">
+          <div className="absolute bottom-0 left-0 right-0 bg-purple-950 bg-opacity-50 text-purple-100 text-center py-4 px-6">
             <h3 className="text-2xl font-semibold">Malvavisco Tostado</h3>
           </div>
         </div>
@@ -56,21 +56,23 @@ function Servicios() {
             height={600}
             className="object-cover w-full h-full transform group-hover:scale-105 transition duration-500 ease-in-out"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-yellow-950 bg-opacity-50 text-orange-100 text-center py-4 px-6">
+          <div className="absolute bottom-0 left-0 right-0 bg-purple-950 bg-opacity-50 text-purple-100 text-center py-4 px-6">
             <h3 className="text-2xl font-semibold">Chispas de Chocolate</h3>
           </div>
         </div>
       </div>
+
       {/* Descripción con fondo oscuro y efecto de imagen sobrepuesta */}
-      <div className="relative z-20 bg-yellow-950 bg-opacity-70 text-orange-100 px-6 py-16 w-full">
+      <div className="relative z-20 bg-purple-950 bg-opacity-70 text-purple-100 px-6 py-16 w-full">
         <h2 className="text-3xl sm:text-xl font-bold text-center mb-4">¡Todo lo que necesitas, a un solo clic!</h2>
         <p className="text-lg sm:text-xl text-center max-w-3xl mx-auto">
           Imagina disfrutar de galletas frescas y deliciosas, sin tener que encender el horno. Nuestra colección ofrece todo lo que necesitas para deleitar tu paladar sin esfuerzo. ¡Compra ahora y siente el sabor de lo recién horneado!
         </p>
       </div>
+
       <div className="relative z-20 py-8">
         <Link href="/Productos">
-          <button className="text-lg bg-yellow-950 text-orange-100 px-8 py-4 rounded-full font-semibold transform hover:scale-110 transition duration-300 ease-in-out">
+          <button className="text-lg bg-purple-950 text-purple-100 px-8 py-4 rounded-full font-semibold transform hover:scale-110 transition duration-300 ease-in-out">
             ¡Explora la Colección!
           </button>
         </Link>

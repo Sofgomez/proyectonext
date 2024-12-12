@@ -31,8 +31,8 @@ function Chekaout() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-br from-yellow-950 via-yellow-900 to-yellow-950 flex items-center justify-center p-4">
-        <div className="relative bg-orange-100 shadow-2xl rounded-lg w-full max-w-4xl p-8">
+      <div className="min-h-screen bg-gradient-to-br  from-purple-50 to-purple-100 flex items-center justify-center p-4">
+        <div className="relative bg-purple-200 shadow-2xl rounded-lg w-full max-w-4xl p-8">
           {/* Imagen superior izquierda */}
           <Image
             src="/images/check.png"
@@ -54,17 +54,17 @@ function Chekaout() {
           />
 
           {/* Título */}
-          <h1 className="text-4xl font-bold text-yellow-900 text-center mb-8">
+          <h1 className="text-4xl font-bold text-purple-900 text-center mb-8">
             Finaliza tu Compra
           </h1>
 
           {/* Resumen del Pedido */}
-          <div className="relative bg-yellow-900 rounded-lg p-6 mb-8 shadow-md">
-            <h2 className="text-2xl font-semibold text-orange-100 mb-4">
+          <div className="relative bg-purple-900 rounded-lg p-6 mb-8 shadow-md">
+            <h2 className="text-2xl font-semibold text-pink-100 mb-4">
               Resumen de tu Pedido
             </h2>
             {cart.length === 0 ? (
-              <p className="text-orange-100 text-center">Tu carrito está vacío.</p>
+              <p className="text-pink-100 text-center">Tu carrito está vacío.</p>
             ) : (
               <ul className="space-y-6">
                 {cart.map((item) => (
@@ -82,15 +82,15 @@ function Chekaout() {
                         className="rounded-md shadow-lg"
                       />
                       <div>
-                        <p className="text-lg font-medium text-orange-100">
+                        <p className="text-lg font-medium text-pink-100">
                           {item.nombre}
                         </p>
-                        <p className="text-sm text-orange-200">
+                        <p className="text-sm text-purple-100">
                           €{item.precio.toFixed(2)} x {item.cantidad}
                         </p>
                       </div>
                     </div>
-                    <p className="text-lg font-semibold text-yellow-900">
+                    <p className="text-lg font-semibold text-purple-200">
                       €{(item.precio * item.cantidad).toFixed(2)}
                     </p>
                   </li>
@@ -100,17 +100,17 @@ function Chekaout() {
           </div>
 
           {/* Total y Formulario */}
-          <div className="bg-yellow-900 rounded-lg p-6 mb-8">
+          <div className="bg-purple-900 rounded-lg p-6 mb-8">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold text-orange-100">Total:</h3>
-              <p className="text-2xl font-bold text-orange-100">
+              <h3 className="text-lg font-bold text-pink-100">Total:</h3>
+              <p className="text-2xl font-bold text-purple-200">
                 €{calculateTotal().toFixed(2)}
               </p>
             </div>
             <form onSubmit={handlePayment} className="space-y-6">
               {/* Opción de envío o recogida */}
               <div>
-                <p className="text-orange-100 font-medium mb-2">Método de entrega:</p>
+                <p className="text-pink-100 font-medium mb-2">Método de entrega:</p>
                 <div className="flex items-center space-x-4">
                   <label className="flex items-center">
                     <input
@@ -121,7 +121,7 @@ function Chekaout() {
                       onChange={() => setDeliveryOption("envio")}
                       className="mr-2"
                     />
-                    <span className="text-orange-100">Envío a domicilio</span>
+                    <span className="text-pink-100">Envío a domicilio</span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -132,7 +132,7 @@ function Chekaout() {
                       onChange={() => setDeliveryOption("recoger")}
                       className="mr-2"
                     />
-                    <span className="text-orange-100">Recoger en tienda</span>
+                    <span className="text-pink-100">Recoger en tienda</span>
                   </label>
                 </div>
               </div>
@@ -142,7 +142,7 @@ function Chekaout() {
                 <div>
                   <label
                     htmlFor="direccion"
-                    className="block text-sm font-medium text-orange-100"
+                    className="block text-sm font-medium text-pink-100"
                   >
                     Dirección
                   </label>
@@ -150,7 +150,7 @@ function Chekaout() {
                     type="text"
                     id="direccion"
                     placeholder="Ingresa tu dirección"
-                    className="mt-1 block w-full rounded-md border-orange-300 shadow-sm"
+                    className="mt-1 block w-full rounded-md border-pink-100 shadow-sm"
                     required
                   />
                 </div>
@@ -159,7 +159,7 @@ function Chekaout() {
               <div>
                 <label
                   htmlFor="nombre"
-                  className="block text-lg font-small text-orange-100"
+                  className="block text-lg font-small text-pink-100"
                 >
                   Nombre Completo
                 </label>
@@ -174,7 +174,7 @@ function Chekaout() {
               <div>
                 <label
                   htmlFor="tarjeta"
-                  className="block text-sm font-medium text-orange-100"
+                  className="block text-sm font-medium text-pink-100"
                 >
                   Número de Tarjeta
                 </label>
@@ -190,7 +190,7 @@ function Chekaout() {
                 <div className="w-1/2">
                   <label
                     htmlFor="expiracion"
-                    className="block text-sm font-medium text-orange-100"
+                    className="block text-sm font-medium text-pink-100"
                   >
                     Fecha de Expiración
                   </label>
@@ -205,7 +205,7 @@ function Chekaout() {
                 <div className="w-1/2">
                   <label
                     htmlFor="cvc"
-                    className="block text-sm font-medium text-orange-100"
+                    className="block text-sm font-medium text-pink-100"
                   >
                     Código de Seguridad (CVC)
                   </label>
@@ -220,7 +220,7 @@ function Chekaout() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-yellow-800 text-white py-3 rounded-md shadow-md hover:bg-yellow-950 transition duration-300"
+                className="w-full bg-purple-800 text-white py-3 rounded-md shadow-md hover:bg-purple-950 transition duration-300"
               >
                 Realizar Pago
               </button>
