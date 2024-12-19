@@ -6,6 +6,7 @@ import Image from "next/image";
 function Chekaout() {
   const [cart, setCart] = useState([]);
   const [deliveryOption, setDeliveryOption] = useState("envio"); // Estado para controlar la opción seleccionada
+  const [showLoginMessage, setShowLoginMessage] = useState(false); // Estado para mostrar el mensaje de inicio de sesión
   const router = useRouter(); // Hook de enrutamiento
 
   // Recuperar el carrito de LocalStorage al cargar la página
@@ -16,6 +17,12 @@ function Chekaout() {
     }
   }, []);
 
+  // Verificar si el usuario está autenticado
+  const isUserAuthenticated = () => {
+    const user = localStorage.getItem("user");
+    return user ? true : false;
+  };
+
   // Calcular el total
   const calculateTotal = () =>
     cart.reduce((total, item) => total + item.precio * item.cantidad, 0);
@@ -23,6 +30,13 @@ function Chekaout() {
   // Enviar datos del pago
   const handlePayment = (e) => {
     e.preventDefault();
+    
+    if (!isUserAuthenticated()) {
+      setShowLoginMessage(true);
+      setTimeout(() => setShowLoginMessage(false), 3000); // Mostrar el mensaje por 3 segundos
+      return;
+    }
+
     alert("¡Pago procesado con éxito!");
     // Limpiar carrito tras el pago
     localStorage.removeItem("cart");
@@ -227,6 +241,21 @@ function Chekaout() {
             </form>
           </div>
         </div>
+
+        {showLoginMessage && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white p-12 rounded-lg text-center text-purple-700 shadow-lg transform transition-all scale-95 opacity-0 animate-popup">
+      <p className="text-2xl font-semibold mb-4">¡Ups!</p>
+      <p className="text-lg font-medium mb-6">Inicia sesión para completar tu compra</p>
+      <button
+        onClick={() => setShowLoginMessage(false)}
+        className="bg-purple-700 text-white py-3 px-10 rounded-md hover:bg-purple-800 transition duration-300"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+)}
       </div>
     </Layout>
   );

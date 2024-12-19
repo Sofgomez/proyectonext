@@ -30,33 +30,44 @@ const Header = () => {
 
   const handleAuthSubmit = (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
     const userType = formData.get("userType");
-
-    // Simular autenticación
+  
+    // Validaciones básicas
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      alert("Por favor, ingresa un correo válido.");
+      return;
+    }
+  
+    if (password.length < 6) {
+      alert("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+  
+    // Simulación de autenticación o registro
     if (isLogin) {
-      // Login: comprobar credenciales simuladas
       if (email && password) {
-        // Supongamos que la autenticación es correcta
-        const mockUser  = {
+        const mockUser = {
           email,
           userType: "user", // Cambiar manualmente a "delivery" para probar
         };
-        updateUserInLocalStorage(mockUser );
+        updateUserInLocalStorage(mockUser);
         setIsModalOpen(false);
+  
+        // Redirección después del inicio de sesión
+        router.push(mockUser.userType === "user" ? "/Cliente" : "/Domiciliario");
       }
     } else {
-      // Registro: crear usuario simulado
       if (email && password && userType) {
-        const newUser = {
-          email,
-          userType, // "user" o "delivery"
-        };
+        const newUser = { email, userType };
         updateUserInLocalStorage(newUser);
         setIsModalOpen(false);
+  
+        // Redirección después del registro
+        router.push(userType === "user" ? "/Cliente" : "/Domiciliario");
       }
     }
   };
@@ -125,7 +136,7 @@ const Header = () => {
                 >
                   <Image
                     src="/images/userss.png" // Imagen predeterminada para el usuario
-                    alt="Imagen de perfil"
+                    alt="Imagen"
                     width={40}
                     height={40}
                     className="rounded-full"
