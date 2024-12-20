@@ -8,6 +8,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para la ventana modal
   const [isLogin, setIsLogin] = useState(true); // Estado para alternar entre login y registro
   const [user, setUser] = useState(null); // Estado para simular el usuario autenticado
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
   const router = useRouter();
 
   // Función para obtener el usuario autenticado desde el almacenamiento local
@@ -41,9 +42,9 @@ const Header = () => {
       alert("Por favor, ingresa un correo válido.");
       return;
     }
-  
-    if (password.length < 6) {
-      alert("La contraseña debe tener al menos 6 caracteres.");
+
+      if (password.length < 6) {
+      setShowErrorMessage(true); // Muestra el mensaje de error si la contraseña es inválida
       return;
     }
   
@@ -246,6 +247,23 @@ const Header = () => {
               </button>
             </form>
 
+             {/* Mensaje de error */}
+             {showErrorMessage && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                  <div className="bg-white p-8 rounded-lg text-center text-purple-700 shadow-lg transform transition-all scale-95 animate-popup">
+                    <p className="text-xl font-semibold mb-4">Error</p>
+                    <p className="text-lg font-medium mb-6">
+                      La contraseña debe tener al menos 6 caracteres.
+                    </p>
+                    <button
+                      onClick={() => setShowErrorMessage(false)}
+                      className="bg-purple-700 text-white py-2 px-8 rounded-md hover:bg-purple-800 transition duration-300"
+                      >
+                      Cerrar
+                    </button>
+                  </div>
+                </div>
+              )}
             {/* Alternar entre login y registro */}
             <p className="mt-4 text-center text-purple-100">
               {isLogin ? "¿No tienes una cuenta?" : "¿Ya tienes una cuenta?"}{" "}

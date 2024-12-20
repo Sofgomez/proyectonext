@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Layout from "../components/main/Layout"; 
+import Layout from "../components/main/Layout";
 import Image from "next/image";
+
 
 function Chekaout() {
   const [cart, setCart] = useState([]);
-  const [deliveryOption, setDeliveryOption] = useState("envio"); // Estado para controlar la opción seleccionada
-  const [showLoginMessage, setShowLoginMessage] = useState(false); // Estado para mostrar el mensaje de inicio de sesión
-  const router = useRouter(); // Hook de enrutamiento
+  const [deliveryOption, setDeliveryOption] = useState("envio");
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
+  const router = useRouter();
 
-  // Recuperar el carrito de LocalStorage al cargar la página
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -17,30 +17,32 @@ function Chekaout() {
     }
   }, []);
 
-  // Verificar si el usuario está autenticado
   const isUserAuthenticated = () => {
     const user = localStorage.getItem("user");
     return user ? true : false;
   };
 
-  // Calcular el total
   const calculateTotal = () =>
     cart.reduce((total, item) => total + item.precio * item.cantidad, 0);
 
-  // Enviar datos del pago
   const handlePayment = (e) => {
     e.preventDefault();
-    
+
     if (!isUserAuthenticated()) {
       setShowLoginMessage(true);
-      setTimeout(() => setShowLoginMessage(false), 3000); // Mostrar el mensaje por 3 segundos
+      setTimeout(() => setShowLoginMessage(false), 3000);
       return;
     }
 
-    alert("¡Pago procesado con éxito!");
-    // Limpiar carrito tras el pago
-    localStorage.removeItem("cart");
-    setCart([]);
+    // Navegar a la página de factura
+    router.push({
+      pathname: "/Factura",
+      query: {
+        cart: JSON.stringify(cart),
+        total: calculateTotal().toFixed(2),
+        deliveryOption,
+      },
+    });
   };
 
   return (
