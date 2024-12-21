@@ -12,6 +12,7 @@ function Productos() {
       descripcion: "Deliciosas galletas con trozos de chocolate belga.",
       precio: 3.00,
       imagen: "/images/galleta4.png",
+      categoria: "Galletas",
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ function Productos() {
       descripcion: "Galleta de Red Velvet con una textura suave, cubierta con un glaseado de queso crema.",
       precio: 8.99,
       imagen: "/images/galleta3.png",
+      categoria: "Galletas",
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta5.png",
+      categoria: "Galletas",
     },
     {
       id: 4,
@@ -33,6 +36,7 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta6.png",
+      categoria: "Galletas",
     },
     {
       id: 5,
@@ -40,6 +44,7 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta7.png",
+      categoria: "Galletas",
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta8.png",
+      categoria: "Galletas",
     },
     {
       id: 7,
@@ -54,6 +60,7 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta9.png",
+      categoria: "Galletas",
     },
     {
       id: 8,
@@ -61,6 +68,23 @@ function Productos() {
       descripcion: "Galletas suaves con un toque de vainilla natural.",
       precio: 4.99,
       imagen: "/images/galleta10.png",
+      categoria: "Galletas",
+    },
+    {
+      id: 9,
+      nombre: "Dona De Chocolate",
+      descripcion: "Dona con un glaseado cremoso de chocolate, irresistible y esponjosa.",
+      precio: 4.99,
+      imagen: "/images/dona.png",
+      categoria: "Donas",
+    },
+    {
+      id: 10,
+      nombre: "Dona De Red Velvet",
+      descripcion: "Dona esponjosa de Red Velvet, con un suave glaseado de queso crema.",
+      precio: 4.99,
+      imagen: "/images/dona2.png",
+      categoria: "Donas",
     },
   ];
 
@@ -68,6 +92,14 @@ function Productos() {
   const [showCart, setShowCart] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); // Para el buscador
   const [sortedAsc, setSortedAsc] = useState(true);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
+
+  const categorias = ["Todas", "Galletas", "Donas"]; // Puedes añadir más categorías
+
+// Filtrar productos según la categoría seleccionada
+const productosFiltrados = productos.filter((producto) =>
+  categoriaSeleccionada === "Todas" || producto.categoria === categoriaSeleccionada
+);
 
   // Recuperar carrito desde localStorage
   useEffect(() => {
@@ -151,18 +183,22 @@ function Productos() {
     <input
       type="text"
       placeholder="Buscar productos..."
-      className="w-full max-w-md px-4 py-2 border rounded-lg text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      className="hidden sm:block w-full max-w-md px-4 py-2 border rounded-lg text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
     />
 
-     {/* Botón para ordenar */}
-     <button
-            onClick={() => setSortedAsc(!sortedAsc)}
-            className="ml-6 bg-purple-800 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
-          >
-            {sortedAsc ? "Ordenar Z-A" : "Ordenar A-Z"}
-          </button>
+<div className="flex justify-center mb-6">
+  {categorias.map((categoria) => (
+    <button
+      key={categoria}
+      onClick={() => setCategoriaSeleccionada(categoria)}
+      className={`px-4 py-2 mx-2 rounded-lg ${categoriaSeleccionada === categoria ? 'bg-purple-600 text-white' : 'bg-purple-200 text-purple-900'} transition`}
+    >
+      {categoria}
+    </button>
+  ))}
+</div>
     {/* Carrito */}
     <div className="ml-6 relative flex items-center">
       <button
@@ -245,11 +281,11 @@ function Productos() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-purple-900 mb-8">Productos</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {sortProducts().map((producto) => (
-              <div
+             {productosFiltrados.map((producto) => (
+             <div
                 key={producto.id}
                 className="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300"
-              >
+                >
                 <div className="flex justify-center items-center w-full h-64 bg-purple-200 rounded-t-lg">
                   <Image
                     src={producto.imagen}
